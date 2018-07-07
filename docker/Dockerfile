@@ -3,6 +3,7 @@ FROM ubuntu:rolling
 RUN apt-get -y update && \
     apt-get -y upgrade && \
     apt-get -y install software-properties-common && \
+    apt-get -y install libssl1.0.0 && \
     add-apt-repository -y ppa:bitcoin/bitcoin && \
     apt-get -y update && \
     apt-get -y install bitcoin-qt
