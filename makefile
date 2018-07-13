@@ -12,7 +12,7 @@ run:
 	docker run -ti --rm -e "XAUTHORITY=${XAUTH}" -e "DISPLAY=${DISPLAY}" -v ${HOME}/.bitcoin-btc:/bitcoin -v ${XAUTH}:${XAUTH} -v ${XSOCK}:${XSOCK} --name=${CONTAINER_NAME} --user="${UID}:${GID}" ${IMAGE_NAME}
 
 run-daemon:
-	docker run -ti --rm -v ${HOME}/.bitcoin-btc:/bitcoin --name=${CONTAINER_NAME} --user="${UID}:${GID}" ${IMAGE_NAME} /usr/bin/bitcoind -datadir=/bitcoin
+	docker run -d --rm -v ${HOME}/.bitcoin-btc:/bitcoin --name=${CONTAINER_NAME} --user="${UID}:${GID}" ${IMAGE_NAME} /usr/bin/bitcoind -datadir=/bitcoin
 
 clean:
 	docker rm ${CONTAINER_NAME}
